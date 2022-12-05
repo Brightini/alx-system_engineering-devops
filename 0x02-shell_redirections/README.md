@@ -1,4 +1,4 @@
-# SHELL REDIRACTION
+# SHELL REDIRECTION
 ```DevOps``` ```Bash``` ```Shell```
 This project covers basic shell redirection commands
 
