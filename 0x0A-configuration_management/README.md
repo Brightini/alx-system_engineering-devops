@@ -1,0 +1,1 @@
+This project covers the basic syntax of puppet, a server configuration management tool.
