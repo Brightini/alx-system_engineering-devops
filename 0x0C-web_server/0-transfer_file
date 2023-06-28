@@ -2,7 +2,7 @@
 # This script transfers files from a client to a server
 # It accepts arguments from the terminal to achieve this
 
-if [ $# -lt 4 ];
+if [ $# -lt 3 ];
 then
 	echo "Usage: 0-transfer_file PATH_TO_FILE IP USERNAME PATH_TO_SSH_KEY"
 	exit 1
