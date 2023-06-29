@@ -1,4 +1,5 @@
 !#/usr/bin/env bash
+# this script automates ths installation of nginx
 
 # installing nginx
 apt-get -y update
