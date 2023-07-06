@@ -12,35 +12,16 @@
 apt-get -y update
 apt-get -y install nginx
 
-# set nginx to listen on port 80
-ufw allow 'Nginx HTTP'
-# set nginx to listen on port 22
-sudo ufw allow 22
-
 # set up nginx default landing page
 echo "Hello World!" > /var/www/html/index.nginx-debian.html
 
+# Configure Nginx server to have a custom 404 page
 echo "Ceci n'est pas une page" > /var/www/html/404.html
 
-printf %s "server {
-    listen 80 default_server;
-    listen [::]:80 default_server;
-    add_header X-Served-By $HOSTNAME;
-    root   /var/www/html;
-    index  index.html index.htm;
-
-    location /redirect_me {
-        return 301 http://cuberule.com/;
-    }
-
-    error_page 404 /404.html;
-    location /404 {
-        root /var/www/html;
-        internal;
-    }
-}" > /etc/nginx/sites-available/default
-
-# test configuration to ensure there are no syntax errors
-nginx -t
-
+sed -i "/server_name _;/a \
+	\\\n\terror_page 404 /404.html; \
+    \n\n\tadd_header X-Served-By $(hostname); \
+	\n\n\tlocation /redirect_me { \
+	\n\t\treturn 301 https://www.youtube.com/watch?v=QH2-TGUlwu4; \
+	\n\t}" /etc/nginx/sites-available/default
 service nginx restart
