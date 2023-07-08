@@ -22,5 +22,6 @@ sed -i "/127.0.0.1 localhost/a 34.227.89.70 10323-lb-01\n34.224.6.149 10323-web-
         echo -e "\tbalance roundrobin"
         echo -e "\tserver 10323-web-01 54.236.25.169:80 check"
         echo -e "\tserver 10323-web-02 34.224.6.149:80 check"
-}
+} >> /etc/haproxy/haproxy.cfg
+
 systemctl restart haproxy
