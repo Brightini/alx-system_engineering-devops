@@ -37,6 +37,10 @@ defaults
 frontend web_frontend
         bind *:80
         bind *:443 ssl crt /etc/ssl/www.innovativehub.tech/www.innovativehub.tech.pem
+
+	# Redirect if HTTPS is not used
+    	redirect scheme https code 301 if !{ ssl_fc }
+
         mode http
         default_backend www_backend
 
