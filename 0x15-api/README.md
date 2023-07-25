@@ -1,0 +1,1 @@
+This repo is all about REST API. I contains tasks I worked on to learn the basics of REST API using python scripts
