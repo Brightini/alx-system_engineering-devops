@@ -24,12 +24,13 @@ if __name__ == "__main__":
             id = task.get("userId")
             task_title = task.get("title")
             task_status = task.get("completed")
-            task_description = {
-                "username": userName,
-                "task": task_title,
-                "completed": task_status,
-                }
-            task_list.append(task_description)
+            if userID == id:
+                task_description = {
+                    "username": userName,
+                    "task": task_title,
+                    "completed": task_status,
+                    }
+                task_list.append(task_description)
 
         data[str(userID)] = task_list
 
