@@ -3,7 +3,6 @@
 prints the first 10 posts of a subreddit """
 
 import requests
-import json
 
 
 def top_ten(subreddit):
